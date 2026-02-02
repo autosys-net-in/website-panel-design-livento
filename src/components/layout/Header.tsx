@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ onDownloadPDF }) => {
           <div className="flex items-center space-x-2">
             <div>
               <h1 className="text-xl font-bold"> <img
-                                src="src/assest/logo.png"
+                                src="/assest/logo.png"
                                 alt="Livento Logo"
                                 className="w-22 h-8 sm:w-30 sm:h-25 md:w-30 md:h-30 object-contain opacity-100 invert "
                              
