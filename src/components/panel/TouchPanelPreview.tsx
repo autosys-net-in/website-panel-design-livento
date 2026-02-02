@@ -1136,7 +1136,7 @@ const TouchPanelPreview = forwardRef<HTMLDivElement, TouchPanelPreviewProps>(
                 {/* Responsive Brand logo on panel */}
                 <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-3 md:bottom-4 md:right-4 z-10">
                   <img
-                    src={URLS.Livento_LOGO}
+                    src={"src/assest/logo.png"}
                     alt="Livento Logo"
                     className="w-4 h-auto sm:w-10 md:w-16 object-contain opacity-100"
                     style={{
@@ -1152,7 +1152,7 @@ const TouchPanelPreview = forwardRef<HTMLDivElement, TouchPanelPreviewProps>(
         {/* Brand logo at bottom right of screen */}
         <div className="absolute bottom-8 right-2 sm:bottom-4 sm:right-3 md:bottom-3 md:right-4 z-10">
           <img
-            src={URLS.Livento_LOGO}
+            src={"src/assest/logo.png"}
             alt="Livento Logo"
             className="w-22 h-8 sm:w-30 sm:h-25 md:w-31 md:h-31 object-contain opacity-100"
             style={{
