@@ -1,0 +1,830 @@
+.touch-panel {
+  display: flex;
+  flex-direction: row; /* horizontal */
+  align-items: center;
+  justify-content: center;
+  border: 4px solid black;
+  border-radius: 24px;
+  padding: 20px;
+  gap: 20px;
+  background: linear-gradient(135deg, #1a1a1a 60%, #000000);
+}
+
+.touch-slot {
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Panel.css - Responsive Touch Panel Styles */
+
+/* Base mobile styles (default) */
+.panel-container {
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wall selector responsive styles */
+.wall-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.wall-option {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.wall-option.selected {
+  border-color: rgb(59 130 246);
+}
+
+.wall-option img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Panel frame responsive styles */
+.panel-frame {
+  border-radius: 2rem;
+  padding: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.panel-inner {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 0;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+/* Base panel sizes - Mobile First */
+.panel-size-2 {
+  width: 280px;
+  height: 280px;
+}
+
+.panel-size-4 {
+  width: 320px;
+  height: 240px;
+}
+
+.panel-size-6 {
+  width: 360px;
+  height: 240px;
+}
+
+.panel-size-8 {
+  width: 400px;
+  height: 240px;
+}
+
+/* Slot styles */
+.slot-base {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  transition: all 0.1s ease;
+}
+
+.slot-switch {
+  width: 40px;
+  height: 40px;
+}
+
+.slot-plug {
+  width: 100px;
+  height: 100px;
+}
+
+.slot-fan {
+  width: 40px;
+  height: 40px;
+}
+
+.slot-curtain {
+  width: 40px;
+  height: 40px;
+}
+
+/* Grid layouts - Mobile */
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem 1.5rem;
+  place-items: center;
+}
+
+.grid-4x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem 1.5rem;
+  place-items: center;
+}
+
+.grid-5x2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.75rem 1rem;
+  place-items: center;
+}
+
+/* Badge responsive styles */
+.info-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.info-badge {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Clear button */
+.clear-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+/* Fan controls layout */
+.fan-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-left: 1rem;
+}
+
+.fan-control-slot {
+  width: 40px;
+  height: 40px;
+}
+
+/* Plug section */
+.plug-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
+/* Brand logo */
+.brand-logo {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  width: 3rem;
+  height: 1.5rem;
+  object-fit: contain;
+  opacity: 0.6;
+}
+
+/* Delete button */
+.delete-button {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgb(239 68 68);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 20;
+  border: 2px solid white;
+}
+
+.delete-button:hover {
+  background-color: rgb(220 38 38);
+}
+
+.slot-base:hover .delete-button {
+  opacity: 1;
+}
+
+/* Responsive Media Queries */
+
+/* Small tablets */
+@media (min-width: 640px) {
+  .panel-container {
+    padding: 1.5rem;
+  }
+
+  .wall-selector {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .wall-option {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .panel-size-2 {
+    width: 320px;
+    height: 320px;
+  }
+
+  .panel-size-4 {
+    width: 400px;
+    height: 280px;
+  }
+
+  .panel-size-6 {
+    width: 480px;
+    height: 280px;
+  }
+
+  .panel-size-8 {
+    width: 560px;
+    height: 280px;
+  }
+
+  .slot-switch {
+    width: 50px;
+    height: 50px;
+  }
+
+  .slot-plug {
+    width: 130px;
+    height: 130px;
+  }
+
+  .slot-fan {
+    width: 45px;
+    height: 45px;
+  }
+
+  .slot-curtain {
+    width: 50px;
+    height: 50px;
+  }
+
+  .grid-2x2 {
+    gap: 1.25rem 2rem;
+  }
+
+  .grid-4x2 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem 1.5rem;
+  }
+
+  .grid-5x2 {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem 1.25rem;
+  }
+
+  .fan-controls {
+    gap: 1rem;
+    margin-left: 1.5rem;
+  }
+
+  .fan-control-slot {
+    width: 45px;
+    height: 45px;
+  }
+
+  .brand-logo {
+    width: 3.5rem;
+    height: 1.75rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Medium tablets and small desktops */
+@media (min-width: 768px) {
+  .panel-container {
+    padding: 2rem;
+  }
+
+  .panel-size-2 {
+    width: 350px;
+    height: 350px;
+  }
+
+  .panel-size-4 {
+    width: 480px;
+    height: 300px;
+  }
+
+  .panel-size-6 {
+    width: 600px;
+    height: 320px;
+  }
+
+  .panel-size-8 {
+    width: 720px;
+    height: 320px;
+  }
+
+  .slot-switch {
+    width: 55px;
+    height: 55px;
+  }
+
+  .slot-plug {
+    width: 150px;
+    height: 150px;
+  }
+
+  .slot-fan {
+    width: 50px;
+    height: 50px;
+  }
+
+  .slot-curtain {
+    width: 55px;
+    height: 55px;
+  }
+
+  .grid-2x2 {
+    gap: 1.5rem 2.5rem;
+  }
+
+  .grid-4x2 {
+    gap: 1.25rem 1.75rem;
+  }
+
+  .grid-5x2 {
+    gap: 1rem 1.5rem;
+  }
+
+  .fan-controls {
+    gap: 1.25rem;
+    margin-left: 2rem;
+  }
+
+  .fan-control-slot {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Large desktops */
+@media (min-width: 1024px) {
+  .panel-container {
+    padding: 2.5rem;
+  }
+
+  .panel-size-2 {
+    width: 350px;
+    height: 350px;
+  }
+
+  .panel-size-4 {
+    width: 530px;
+    height: 320px;
+  }
+
+  .panel-size-6 {
+    width: 720px;
+    height: 340px;
+  }
+
+  .panel-size-8 {
+    width: 920px;
+    height: 340px;
+  }
+
+  .slot-switch {
+    width: 60px;
+    height: 60px;
+  }
+
+  .slot-plug {
+    width: 170px;
+    height: 170px;
+  }
+
+  .slot-fan {
+    width: 55px;
+    height: 55px;
+  }
+
+  .slot-curtain {
+    width: 60px;
+    height: 60px;
+  }
+
+  .grid-2x2 {
+    gap: 2.5rem 1.25rem;
+  }
+
+  .grid-4x2 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem 1rem;
+  }
+
+  .grid-5x2 {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem 1rem;
+  }
+
+  .fan-controls {
+    gap: 1.25rem 1.25rem;
+    margin-left: 1.5rem;
+  }
+
+  .fan-control-slot {
+    width: 55px;
+    height: 55px;
+  }
+
+  .brand-logo {
+    width: 3.75rem;
+    height: 1.75rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1280px) {
+  .panel-size-6 {
+    width: 720px;
+    height: 340px;
+  }
+
+  .panel-size-8 {
+    width: 920px;
+    height: 340px;
+  }
+}
+
+/* Ultra wide screens */
+@media (min-width: 1536px) {
+  .panel-container {
+    padding: 3rem;
+  }
+
+  .panel-size-8 {
+    width: 980px;
+    height: 360px;
+  }
+}
+
+/* Responsive text sizes */
+@media (max-width: 639px) {
+  .slot-text {
+    font-size: 0.625rem; /* 10px */
+  }
+  
+  .slot-label {
+    font-size: 0.5rem; /* 8px */
+  }
+}
+
+@media (min-width: 640px) {
+  .slot-text {
+    font-size: 0.75rem; /* 12px */
+  }
+  
+  .slot-label {
+    font-size: 0.625rem; /* 10px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .slot-text {
+    font-size: 0.875rem; /* 14px */
+  }
+  
+  .slot-label {
+    font-size: 0.75rem; /* 12px */
+  }
+}
+
+/* Hover effects - disabled on touch devices */
+@media (hover: hover) {
+  .slot-base:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .wall-option:hover {
+    transform: scale(1.05);
+  }
+
+  .clear-button:hover {
+    background-color: rgb(254 242 242);
+    border-color: rgb(252 165 165);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .slot-base {
+    min-height: 44px; /* iOS minimum touch target */
+    min-width: 44px;
+  }
+
+  .delete-button {
+    opacity: 1; /* Always visible on touch devices */
+  }
+
+  .wall-option {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .brand-logo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+  .panel-container {
+    padding: 1rem 2rem;
+  }
+
+  .panel-size-2 {
+    width: 300px;
+    height: 240px;
+  }
+
+  .panel-size-4 {
+    width: 400px;
+    height: 200px;
+  }
+
+  .panel-size-6 {
+    width: 500px;
+    height: 200px;
+  }
+
+  .panel-size-8 {
+    width: 600px;
+    height: 200px;
+  }
+
+  .info-badges {
+    margin-bottom: 0.5rem;
+  }
+
+  .wall-selector {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Portrait orientation adjustments for tablets */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .panel-container {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .panel-frame {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .panel-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .delete-button,
+  .clear-button {
+    display: none;
+  }
+}
+
+/* Accessibility - High contrast mode */
+@media (prefers-contrast: high) {
+  .slot-base {
+    border-width: 3px;
+  }
+
+  .wall-option.selected {
+    border-width: 4px;
+  }
+}
+
+/* Custom breakpoints for specific panel configurations */
+
+/* Very small screens - extreme mobile optimization */
+@media (max-width: 480px) {
+  .panel-container {
+    padding: 0.75rem;
+  }
+
+  .panel-size-2 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .panel-size-4 {
+    width: 300px;
+    height: 220px;
+  }
+
+  .panel-size-6 {
+    width: 320px;
+    height: 220px;
+  }
+
+  .panel-size-8 {
+    width: 340px;
+    height: 220px;
+  }
+
+  .slot-switch {
+    width: 35px;
+    height: 35px;
+  }
+
+  .slot-plug {
+    width: 80px;
+    height: 80px;
+  }
+
+  .slot-fan {
+    width: 35px;
+    height: 35px;
+  }
+
+  .wall-selector {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.375rem;
+  }
+
+  .wall-option {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .info-badge {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.6875rem;
+  }
+
+  .brand-logo {
+    width: 2.5rem;
+    height: 1.25rem;
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+/* Medium screens - optimal tablet experience */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .wall-selector {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Large screens - full desktop experience */
+@media (min-width: 1280px) {
+  .panel-container {
+    padding: 3rem;
+  }
+
+  .wall-selector {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .wall-option {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .info-badges {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1920px) {
+  .panel-size-8 {
+    width: 1000px;
+    height: 380px;
+  }
+
+  .slot-switch {
+    width: 65px;
+    height: 65px;
+  }
+
+  .slot-plug {
+    width: 190px;
+    height: 190px;
+  }
+}
+
+/* Responsive component sections positioning */
+.component-sections {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.main-grid-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-components {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 639px) {
+  .side-components {
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .side-components {
+    gap: 1.5rem;
+  }
+}
+
+/* Responsive grid gaps based on content */
+.panel-size-2 .grid-2x2 {
+  gap: 1.5rem 2rem;
+}
+
+.panel-size-4 .grid-4x2 {
+  gap: 1.25rem 1.5rem;
+}
+
+.panel-size-6 .grid-5x2 {
+  gap: 1rem 1.25rem;
+}
+
+.panel-size-8 .grid-5x2 {
+  gap: 3rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .panel-size-2 .grid-2x2 {
+    gap: 2.5rem 1.25rem;
+  }
+
+  .panel-size-4 .grid-4x2 {
+    gap: 3rem 1rem;
+  }
+
+  .panel-size-6 .grid-5x2 {
+    gap: 3rem 1rem;
+  }
+}
