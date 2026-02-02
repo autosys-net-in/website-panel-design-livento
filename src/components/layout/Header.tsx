@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import logo from "@/assest/logo.png";
 import URLS from "../../config.js"
 interface HeaderProps {
   onDownloadPDF?: () => Promise<void>;
@@ -49,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ onDownloadPDF }) => {
           <div className="flex items-center space-x-2">
             <div>
               <h1 className="text-xl font-bold"> <img
-                                src="/assest/logo.png"
+                                src={logo}
                                 alt="Livento Logo"
                                 className="w-22 h-8 sm:w-30 sm:h-25 md:w-30 md:h-30 object-contain opacity-100 invert "
                              
